@@ -3,10 +3,10 @@ const Joi = require('@hapi/joi');
 //register validation
 const registerValidation = (data) => {
     const schema = {
-        name: Joi.string().min(2).required(),
-        lastName: Joi.string().min(2).required(),
+        name: Joi.string().min(6).required(),
+        lastName: Joi.string().min(6).required(),
         phone: Joi.string().min(10).required(),
-        email: Joi.string().min(2).required().email(),
+        email: Joi.string().min(6).required().email(),
         password: Joi.string().min(6).required()
 
     }

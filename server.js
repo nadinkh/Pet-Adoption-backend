@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const postRoute = require('./routes/posts')
+const postRoute = require('./routes/UserInfo')
 const cors = require('cors');
 
 //import route
@@ -34,7 +34,7 @@ app.use(cors())
 
 app.use('/api/user', authRoute);
 
-app.use('/api/posts', postRoute)
+app.use('/api/userinfo', postRoute)
 
 app.listen(3000, () => console.log('server up and running'));
 
