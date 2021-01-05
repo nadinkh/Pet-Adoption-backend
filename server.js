@@ -6,6 +6,9 @@ const postRoute = require('./routes/UserInfo')
 // const putRoute=require('./routes/UserInfo')
 const cors = require('cors');
 
+//pet 
+const petRoute = require('./routes/pet')
+
 //import route
 
 const authRoute = require('./routes/auth');
@@ -38,6 +41,7 @@ app.use(cors())
 app.use('/api/user', authRoute);
 
 app.use('/api/userinfo', postRoute)
+app.use('/api/pet', petRoute);
 
 app.listen(3000, () => console.log('server up and running'));
 
