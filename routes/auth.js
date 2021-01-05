@@ -21,8 +21,10 @@ router.post('/register', async (req, res) => {
     const user = new User({
         name: req.body.name,
         lastName: req.body.lastName,
+        // userBio:req.body.userBio, //ADDED
         phone: req.body.phone,
         email: req.body.email,
+        // password: req.body.password
         password: hashPassword
     })
     try {
@@ -51,4 +53,9 @@ router.post('/login', async (req, res) => {
     res.send({ token: token })
 
 })
+
+
+
+
+
 module.exports = router;

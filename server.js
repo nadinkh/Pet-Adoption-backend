@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const postRoute = require('./routes/UserInfo')
+// const putRoute=require('./routes/UserInfo')
 const cors = require('cors');
 
 //import route
@@ -14,6 +15,8 @@ mongoose.connect(
     process.env.DB_CONNECT,
     { useNewUrlParser: true },
     { useUnifiedTopology: true },
+    { useCreateIndex: true },
+    { useFindAndModify: false },
     () => console.log('connected to db!')
 );
 //Import the mongoose module

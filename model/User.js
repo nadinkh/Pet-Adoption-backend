@@ -11,6 +11,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         min: 6
     },
+    userBio: {
+        type: String,
+        max: 3000
+    },
     phone: {
         type: Number,
         required: true,
