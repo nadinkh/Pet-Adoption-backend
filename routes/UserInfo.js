@@ -29,8 +29,8 @@ router.get('/', verify, (req, res) => {
 router.put('/userinfo/:id', async (req, res) => {
 
     let id = req.params._id
-    // const salt = await bcrypt.genSalt(10)
-    // const hashPassword = await bcrypt.hash(req.body.password, salt)
+    const salt = await bcrypt.genSalt(10)
+    const hashPassword = await bcrypt.hash(req.body.password, salt)
 
     const emailExist = await User.findOne({ email: req.body.email })
     if (emailExist) {
@@ -43,8 +43,8 @@ router.put('/userinfo/:id', async (req, res) => {
         phone: req.body.phone,
         email: req.body.email,
         userBio: req.body.userBio,
-        password: req.body.password
-        // password: hashPassword
+        // password: req.body.password
+        password: hashPassword
     }
     User.findOneAndUpdate({ _id: id }, update, { upsert: true }
         , (err) => {

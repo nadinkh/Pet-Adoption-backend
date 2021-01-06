@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Pet = require('../model/Animal.js')
 router.post('/new-pet', async (req, res) => {
-    res.send('new pet')
+    // res.send('new pet')
     const pet = new Pet({
         name: req.body.name,
         type: req.body.type,
@@ -19,6 +19,7 @@ router.post('/new-pet', async (req, res) => {
         res.send({
             pet: pet._id
         })
+        // res.send({ pet: savedPet._id })
     }
     catch (err) {
         res.status(400).send(err)
