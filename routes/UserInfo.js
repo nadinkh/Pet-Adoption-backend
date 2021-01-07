@@ -28,7 +28,7 @@ router.get('/', verify, (req, res) => {
 // })
 router.put('/userinfo/:id', async (req, res) => {
 
-    let id = req.params._id
+    let id = req.params.id
     const salt = await bcrypt.genSalt(10)
     const hashPassword = await bcrypt.hash(req.body.password, salt)
 

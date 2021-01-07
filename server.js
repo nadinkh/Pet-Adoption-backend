@@ -8,7 +8,7 @@ const cors = require('cors');
 
 //pet 
 const petRoute = require('./routes/pet')
-
+const updateRoute = require('./routes/pet')
 //import route
 
 const authRoute = require('./routes/auth');
@@ -42,6 +42,8 @@ app.use('/api/user', authRoute);
 
 app.use('/api/userinfo', postRoute)
 app.use('/api/pet', petRoute);
+app.use('/api/update', updateRoute);
+
 
 app.listen(3000, () => console.log('server up and running'));
 
