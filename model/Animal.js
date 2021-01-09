@@ -28,8 +28,8 @@ const petSchema = new mongoose.Schema({
     bio: {
         type: String,
     },
-    // photoUrl: {
-    //     type: String,
-    // }
+    photoUrl: {
+        type: String,
+    }
 })
 module.exports = mongoose.model('Pet', petSchema)

@@ -12,7 +12,7 @@ router.post('/new-pet', async (req, res) => {
         hypoallergenic: req.body.hypoallergenic,
         dietary: req.body.dietary,
         bio: req.body.bio,
-        // photoUrl: req.body.photoUrl
+        photoUrl: req.body.photoUrl
     })
     try {
         const savedPet = await pet.save()
@@ -24,6 +24,17 @@ router.post('/new-pet', async (req, res) => {
         res.status(400).send(err)
     }
 })
+router.get("/", async (req, res) => {
+    try {
+        // res.send(petsPath);
+        let pets = await Pet.find({})
+        res.send(pets);
+    } catch (err) {
+        console.error(err.massage);
+        res.status(500).send('Server error')
+    }
+    // res.send(petsPath);
+});
 
 router.get('/:id', async (req, res) => {
     let id = req.params.id
